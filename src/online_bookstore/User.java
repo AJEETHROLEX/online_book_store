@@ -2,20 +2,21 @@ package online_bookstore;
 
 import java.sql.*;
 import java.util.Scanner;
+import java.sql.*;
 
-public class Customer {
-	
+public class User {
   public static void main(String[] args) {
-	  Bookstore b=new Bookstore();	 
+	 
     String name = null, email = null, address = null, bookname;
-    int pin, no = 0, i;
-    Customer bs = new Customer();
+    int pin, i;
+    long no=0;
+    User bs = new User();
     bs.userdetails(name, email, address, no);
-    b.bookstore();
-    
+    Bookstore b=new Bookstore();
+	  b.bookstore();
   }
 
-  public void userdetails(String name, String email, String address, int no) {
+  public void userdetails(String name, String email, String address, long no) {
     Scanner sc = new Scanner(System.in);
     System.out.println("*********WELCOME TO ONLINE BOOKSTORE*********");
     System.out.println("Register your details to buy a book");
@@ -38,7 +39,7 @@ public class Customer {
 		   
 		   String query ="insert into customer values(?,?,?,?);";
 	    	
-//		   System.out.println(query);
+		   System.out.println(query);
    	   Class.forName("com.mysql.jdbc.Driver");
    	   
    	   Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/user","root","root");
